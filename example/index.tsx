@@ -7,7 +7,7 @@ import { Statusbar } from '../.';
 const App = () => {
   return (
     <div>
-      <Statusbar />
+      <Statusbar>hello world</Statusbar>
     </div>
   );
 };

@@ -1,3 +1,23 @@
 .statusbar {
   position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.9rem;
+  line-height: 0.9rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
+.light {
+  background: #ddd;
+  color: #111;
+}
+
+.dark {
+  background: #333;
+  color: #eee;
 }

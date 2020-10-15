@@ -1,1 +1,4 @@
-export * from './Statusbar';
+import { Statusbar, StatusbarProps } from './Statusbar';
+
+export { StatusbarProps };
+export { Statusbar };
