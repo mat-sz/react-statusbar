@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './index.module.scss';
-export { Item } from './Item';
+import { Item } from './Item';
+
+export { Item };
 
 export interface StatusbarProps {
-  children: React.ReactNode;
+  children: typeof Item | typeof Item[];
   theme: 'dark' | 'light';
 }
 

@@ -24,3 +24,5 @@ import * as Statusbar from 'react-statusbar';
   <Statusbar.Item align="right">Hello</Statusbar.Item>
 </Statusbar.Statusbar>;
 ```
+
+**Only Statusbar.Item is accepted as a child of Statusbar.Statusbar.**
