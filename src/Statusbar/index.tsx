@@ -6,17 +6,22 @@ export { Item };
 
 export interface StatusbarProps {
   children: typeof Item | typeof Item[];
-  theme: 'dark' | 'light';
+  theme?: 'dark' | 'light';
+  className?: string;
 }
 
 export const Statusbar: React.FC<StatusbarProps> = ({
   children,
+  className,
   theme = 'dark'
 }) => {
   return (
     <div
       className={
-        styles.statusbar + ' ' + (theme === 'dark' ? styles.dark : styles.light)
+        styles.statusbar +
+        ' ' +
+        (theme === 'dark' ? styles.dark : styles.light) +
+        (className ? ' ' + className : '')
       }
     >
       <div className={styles.items}>
