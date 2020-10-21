@@ -3,7 +3,7 @@
   border: none;
   color: var(--primary-color);
   padding: 0.3rem 0.4rem;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--statusbar-font-family);
   font-weight: bold;
 
   &:hover {
