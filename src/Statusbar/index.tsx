@@ -24,18 +24,18 @@ export const Statusbar: React.FC<StatusbarProps> = ({
     switch (theme) {
       case 'dark':
         return {
-          '--primary-color': '#eee',
-          '--background-color': '#333'
+          '--statusbar-primary-color': '#eee',
+          '--statusbar-background-color': '#333'
         };
       case 'light':
         return {
-          '--primary-color': '#111',
-          '--background-color': '#ddd'
+          '--statusbar-primary-color': '#111',
+          '--statusbar-background-color': '#ddd'
         };
       default:
         return {
-          '--primary-color': theme.primaryColor,
-          '--background-color': theme.backgroundColor
+          '--statusbar-primary-color': theme.primaryColor,
+          '--statusbar-background-color': theme.backgroundColor
         };
     }
   }, [theme]);
