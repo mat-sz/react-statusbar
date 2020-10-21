@@ -1,6 +1,8 @@
 import React, { useMemo } from 'react';
+
 import styles from './index.module.scss';
 import { Item } from './Item';
+export { Button } from './Button';
 
 export { Item };
 
@@ -41,10 +43,7 @@ export const Statusbar: React.FC<StatusbarProps> = ({
   }, [theme]);
 
   return (
-    <div
-      className={styles.statusbar + ' ' + (className ? ' ' + className : '')}
-      style={style}
-    >
+    <div className={styles.statusbar + ' ' + (className ?? '')} style={style}>
       <div className={styles.items}>
         {Array.isArray(children)
           ? children.filter(child => (child as any).props?.align !== 'right')

@@ -8,7 +8,9 @@ const App = () => {
   return (
     <div>
       <Statusbar.Statusbar>
-        <Statusbar.Item align="left">Hello</Statusbar.Item>
+        <Statusbar.Item align="left">
+          <Statusbar.Button>Hello world</Statusbar.Button>
+        </Statusbar.Item>
         <Statusbar.Item align="left">Hello</Statusbar.Item>
         <Statusbar.Item align="right">Hello</Statusbar.Item>
       </Statusbar.Statusbar>
