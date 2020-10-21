@@ -11,16 +11,9 @@
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   justify-content: space-between;
-}
 
-.light {
-  background: #ddd;
-  color: #111;
-}
-
-.dark {
-  background: #333;
-  color: #eee;
+  background-color: var(--background-color);
+  color: var(--primary-color);
 }
 
 .items {
