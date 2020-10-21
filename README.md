@@ -18,11 +18,8 @@ And you can now add the statusbar to your project using:
 import 'react-statusbar/dist/statusbar.css';
 import * as Statusbar from 'react-statusbar';
 
-<Statusbar.Statusbar>
-  <Statusbar.Item align="left">Hello</Statusbar.Item>
-  <Statusbar.Item align="left">Hello</Statusbar.Item>
-  <Statusbar.Item align="right">Hello</Statusbar.Item>
-</Statusbar.Statusbar>;
+<Statusbar.Statusbar
+  left={<Statusbar.Button>Hello world</Statusbar.Button>}
+  right={<span>Hello!</span>}
+/>;
 ```
-
-**Only Statusbar.Item is accepted as a child of Statusbar.Statusbar.**

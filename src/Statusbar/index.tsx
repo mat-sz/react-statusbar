@@ -1,10 +1,7 @@
-import React, { useMemo } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 
 import styles from './index.module.scss';
-import { Item } from './Item';
 export { Button } from './Button';
-
-export { Item };
 
 const defaultFontFamily = "'Courier New', Courier, monospace";
 
@@ -15,13 +12,15 @@ export interface StatusbarTheme {
 }
 
 export interface StatusbarProps {
-  children: typeof Item | typeof Item[];
   theme?: 'dark' | 'light' | StatusbarTheme;
   className?: string;
+  left?: ReactNode;
+  right?: ReactNode;
 }
 
 export const Statusbar: React.FC<StatusbarProps> = ({
-  children,
+  left,
+  right,
   className,
   theme = 'dark'
 }) => {
@@ -50,16 +49,8 @@ export const Statusbar: React.FC<StatusbarProps> = ({
 
   return (
     <div className={styles.statusbar + ' ' + (className ?? '')} style={style}>
-      <div className={styles.items}>
-        {Array.isArray(children)
-          ? children.filter(child => (child as any).props?.align !== 'right')
-          : children}
-      </div>
-      <div className={styles.items}>
-        {Array.isArray(children)
-          ? children.filter(child => (child as any).props?.align === 'right')
-          : null}
-      </div>
+      <div className={styles.items}>{left}</div>
+      <div className={styles.items}>{right}</div>
     </div>
   );
 };
