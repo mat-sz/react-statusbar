@@ -8,7 +8,11 @@ const App = () => {
   return (
     <div>
       <Statusbar.Statusbar
-        left={<Statusbar.Button>Hello world</Statusbar.Button>}
+        left={
+          <Statusbar.Button onClick={() => alert('test')}>
+            Hello world
+          </Statusbar.Button>
+        }
       />
     </div>
   );

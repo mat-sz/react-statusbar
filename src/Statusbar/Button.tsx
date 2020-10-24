@@ -2,15 +2,19 @@ import React from 'react';
 
 import styles from './Button.module.scss';
 
-export interface ButtonProps {
-  children: React.ReactNode;
+export interface ButtonProps
+  extends React.DetailedHTMLProps<
+    React.ButtonHTMLAttributes<HTMLButtonElement>,
+    HTMLButtonElement
+  > {
   className?: string;
 }
 
-export const Button: React.FC<ButtonProps> = ({ children, className }) => {
+export const Button: React.FC<ButtonProps> = props => {
   return (
-    <button className={styles.button + ' ' + (className ?? '')}>
-      {children}
-    </button>
+    <button
+      {...props}
+      className={styles.button + ' ' + (props.className ?? '')}
+    />
   );
 };
