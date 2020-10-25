@@ -1,7 +1,6 @@
 import React, { ReactNode, useMemo } from 'react';
 
 import styles from './index.module.scss';
-export { Button } from './Button';
 
 const defaultFontFamily = "'Courier New', Courier, monospace";
 
@@ -63,3 +62,6 @@ export const Statusbar: React.FC<StatusbarProps> = ({
     </div>
   );
 };
+
+export * from './Button';
+export * from './Dropdown';
