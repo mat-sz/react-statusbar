@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import styles from './Dropdown.module.scss';
 import { Button } from './Button';
@@ -17,11 +17,36 @@ export interface DropdownProps {
 export const Dropdown: React.FC<DropdownProps> = label => {
   const [open, setOpen] = useState(false);
   const toggle = useCallback(() => setOpen(open => !open), [setOpen]);
+  const close = useCallback(() => setOpen(false), [setOpen]);
+  const cancelEvent = (event: React.SyntheticEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+  };
+
+  useEffect(() => {
+    window.addEventListener('mousedown', close);
+    window.addEventListener('touchstart', close);
+
+    return () => {
+      window.removeEventListener('mousedown', close);
+      window.removeEventListener('touchstart', close);
+    };
+  }, [close]);
 
   return (
     <>
-      <Button onClick={toggle}>{label}</Button>
-      <div className={styles.dropdown + ' ' + (open ? styles.open : '')}></div>
+      <Button
+        onMouseDown={cancelEvent}
+        onTouchStart={cancelEvent}
+        onClick={toggle}
+      >
+        {label}
+      </Button>
+      <div
+        onMouseDown={cancelEvent}
+        onTouchStart={cancelEvent}
+        className={styles.dropdown + ' ' + (open ? styles.open : '')}
+      ></div>
     </>
   );
 };
