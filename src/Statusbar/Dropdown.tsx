@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
 import styles from './Dropdown.module.scss';
 import { Button } from './Button';
@@ -15,5 +15,13 @@ export interface DropdownProps {
 }
 
 export const Dropdown: React.FC<DropdownProps> = label => {
-  return <Button>{label}</Button>;
+  const [open, setOpen] = useState(false);
+  const toggle = useCallback(() => setOpen(open => !open), [setOpen]);
+
+  return (
+    <>
+      <Button onClick={toggle}>{label}</Button>
+      <div className={styles.dropdown + ' ' + (open ? styles.open : '')}></div>
+    </>
+  );
 };
