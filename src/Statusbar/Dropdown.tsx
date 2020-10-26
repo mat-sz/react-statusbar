@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './Dropdown.module.scss';
+import { Button } from './Button';
 
 export interface DropdownOption {
   key: string;
@@ -13,11 +14,6 @@ export interface DropdownProps {
   label: React.ReactNode;
 }
 
-export const Dropdown: React.FC<DropdownProps> = props => {
-  return (
-    <button
-      {...props}
-      className={styles.button + ' ' + (props.className ?? '')}
-    />
-  );
+export const Dropdown: React.FC<DropdownProps> = label => {
+  return <Button>{label}</Button>;
 };
