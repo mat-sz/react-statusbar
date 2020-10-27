@@ -5,7 +5,7 @@ import { Button } from './Button';
 
 export interface DropdownOption {
   key: string;
-  label: string;
+  label: React.ReactNode;
 }
 
 export interface DropdownProps {
@@ -14,7 +14,7 @@ export interface DropdownProps {
   children: React.ReactNode;
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({ children }) => {
+export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
   const [open, setOpen] = useState(false);
   const toggle = useCallback(() => setOpen(open => !open), [setOpen]);
   const close = useCallback(() => setOpen(false), [setOpen]);
@@ -34,19 +34,30 @@ export const Dropdown: React.FC<DropdownProps> = ({ children }) => {
   }, [close]);
 
   return (
-    <>
-      <Button
-        onMouseDown={cancelEvent}
-        onTouchStart={cancelEvent}
-        onClick={toggle}
-      >
-        {children}
-      </Button>
+    <Button
+      onMouseDown={cancelEvent}
+      onTouchStart={cancelEvent}
+      onClick={toggle}
+      className={styles.button}
+    >
+      {children}
       <div
         onMouseDown={cancelEvent}
         onTouchStart={cancelEvent}
         className={styles.dropdown + ' ' + (open ? styles.open : '')}
-      ></div>
-    </>
+      >
+        {options.map(option => (
+          <button
+            className={styles.option}
+            key={option.key}
+            onMouseDown={cancelEvent}
+            onTouchStart={cancelEvent}
+            onClick={cancelEvent}
+          >
+            {option.label}
+          </button>
+        ))}
+      </div>
+    </Button>
   );
 };

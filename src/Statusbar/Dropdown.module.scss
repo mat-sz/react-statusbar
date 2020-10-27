@@ -1,5 +1,18 @@
+.button {
+  position: relative;
+}
+
 .dropdown {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  right: 0;
 }
 
 .open {
+  display: block;
+}
+
+.option {
 }
