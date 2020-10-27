@@ -4,8 +4,9 @@ import styles from './Dropdown.module.scss';
 import { Button } from './Button';
 
 export interface DropdownOption {
-  key: string;
+  key: React.ReactText;
   label: React.ReactNode;
+  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 export interface DropdownProps {
@@ -50,9 +51,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
           <button
             className={styles.option}
             key={option.key}
-            onMouseDown={cancelEvent}
-            onTouchStart={cancelEvent}
-            onClick={cancelEvent}
+            onClick={option.onClick}
           >
             {option.label}
           </button>

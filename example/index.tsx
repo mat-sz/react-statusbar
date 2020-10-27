@@ -17,7 +17,8 @@ const App = () => {
               options={[
                 {
                   key: 'test',
-                  label: 'Test'
+                  label: 'Test',
+                  onClick: () => alert('test')
                 }
               ]}
             >
