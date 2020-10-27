@@ -9,9 +9,21 @@ const App = () => {
     <div>
       <Statusbar.Statusbar
         left={
-          <Statusbar.Button onClick={() => alert('test')}>
-            Hello world
-          </Statusbar.Button>
+          <>
+            <Statusbar.Button onClick={() => alert('test')}>
+              Hello world
+            </Statusbar.Button>
+            <Statusbar.Dropdown
+              options={[
+                {
+                  key: 'test',
+                  label: 'Test'
+                }
+              ]}
+            >
+              Dropdown
+            </Statusbar.Dropdown>
+          </>
         }
       />
     </div>
