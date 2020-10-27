@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 
 import styles from './Dropdown.module.scss';
-import { Button } from './Button';
+import buttonStyles from './Button.module.scss';
 
 export interface DropdownOption {
   key: React.ReactText;
@@ -35,11 +35,11 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
   }, [close]);
 
   return (
-    <Button
+    <button
       onMouseDown={cancelEvent}
       onTouchStart={cancelEvent}
       onClick={toggle}
-      className={styles.button}
+      className={buttonStyles.button + ' ' + styles.button}
     >
       {children}
       <div
@@ -49,7 +49,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
       >
         {options.map(option => (
           <button
-            className={styles.option}
+            className={buttonStyles.button + ' ' + styles.option}
             key={option.key}
             onClick={option.onClick}
           >
@@ -57,6 +57,6 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
           </button>
         ))}
       </div>
-    </Button>
+    </button>
   );
 };

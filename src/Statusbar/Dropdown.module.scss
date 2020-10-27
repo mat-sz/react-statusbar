@@ -3,6 +3,7 @@
 }
 
 .dropdown {
+  background-color: var(--statusbar-background-color);
   display: none;
   position: absolute;
   bottom: 100%;
@@ -11,8 +12,10 @@
 }
 
 .open {
-  display: block;
+  display: flex;
 }
 
 .option {
+  text-align: left;
+  flex: 1;
 }

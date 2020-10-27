@@ -5,9 +5,10 @@
   padding: 0.3rem 0.4rem;
   font-family: var(--statusbar-font-family);
   font-weight: bold;
+  cursor: pointer;
+}
 
-  &:hover {
-    background: rgba(255, 255, 255, 0.2);
-    cursor: pointer;
-  }
+.button:hover,
+.active {
+  background: rgba(255, 255, 255, 0.2);
 }
