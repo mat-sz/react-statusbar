@@ -11,10 +11,10 @@ export interface DropdownOption {
 export interface DropdownProps {
   className?: string;
   options: DropdownOption[];
-  label: React.ReactNode;
+  children: React.ReactNode;
 }
 
-export const Dropdown: React.FC<DropdownProps> = label => {
+export const Dropdown: React.FC<DropdownProps> = ({ children }) => {
   const [open, setOpen] = useState(false);
   const toggle = useCallback(() => setOpen(open => !open), [setOpen]);
   const close = useCallback(() => setOpen(false), [setOpen]);
@@ -40,7 +40,7 @@ export const Dropdown: React.FC<DropdownProps> = label => {
         onTouchStart={cancelEvent}
         onClick={toggle}
       >
-        {label}
+        {children}
       </Button>
       <div
         onMouseDown={cancelEvent}
