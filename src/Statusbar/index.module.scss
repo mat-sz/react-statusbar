@@ -9,7 +9,7 @@
   font-size: 0.9rem;
   line-height: 0.9rem;
   font-family: var(--statusbar-font-family);
-  font-weight: bold;
+  font-weight: normal;
   justify-content: space-between;
 
   background-color: var(--statusbar-background-color);
@@ -18,4 +18,8 @@
 
 .items {
   display: flex;
+
+  & > * {
+    margin: 0 0.2rem;
+  }
 }

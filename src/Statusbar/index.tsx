@@ -3,7 +3,8 @@ import { className } from '../className';
 
 import styles from './index.module.scss';
 
-const defaultFontFamily = "'Courier New', Courier, monospace";
+const defaultFontFamily =
+  "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif";
 
 export interface StatusbarTheme {
   primaryColor: string;
