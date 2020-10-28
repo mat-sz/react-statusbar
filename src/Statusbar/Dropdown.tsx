@@ -39,7 +39,13 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
       onMouseDown={cancelEvent}
       onTouchStart={cancelEvent}
       onClick={toggle}
-      className={buttonStyles.button + ' ' + styles.button}
+      className={
+        buttonStyles.button +
+        ' ' +
+        styles.button +
+        ' ' +
+        (open ? buttonStyles.active : '')
+      }
     >
       {children}
       <div
