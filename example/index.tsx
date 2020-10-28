@@ -19,6 +19,11 @@ const App = () => {
                   key: 'test',
                   label: 'Test',
                   onClick: () => alert('test')
+                },
+                {
+                  key: 'test2',
+                  label: 'Test 2',
+                  onClick: () => alert('test 2')
                 }
               ]}
             >
