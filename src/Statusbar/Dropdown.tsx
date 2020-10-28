@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import styles from './Dropdown.module.scss';
 import buttonStyles from './Button.module.scss';
+import { className } from '../className';
 
 export interface DropdownOption {
   key: React.ReactText;
@@ -39,23 +40,21 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
       onMouseDown={cancelEvent}
       onTouchStart={cancelEvent}
       onClick={toggle}
-      className={
-        buttonStyles.button +
-        ' ' +
-        styles.button +
-        ' ' +
-        (open ? buttonStyles.active : '')
-      }
+      className={className(buttonStyles.button, styles.button, {
+        [buttonStyles.active]: open
+      })}
     >
       {children}
       <div
         onMouseDown={cancelEvent}
         onTouchStart={cancelEvent}
-        className={styles.dropdown + ' ' + (open ? styles.open : '')}
+        className={className(styles.dropdown, {
+          [styles.open]: open
+        })}
       >
         {options.map(option => (
           <button
-            className={buttonStyles.button + ' ' + styles.option}
+            className={className(buttonStyles.button, styles.option)}
             key={option.key}
             onClick={option.onClick}
           >
