@@ -21,10 +21,6 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
   const [open, setOpen] = useState(false);
   const toggle = useCallback(() => setOpen(open => !open), [setOpen]);
   const close = useCallback(() => setOpen(false), [setOpen]);
-  const cancelEvent = (event: React.SyntheticEvent) => {
-    event.preventDefault();
-    event.stopPropagation();
-  };
 
   useEffect(() => {
     window.addEventListener('mousedown', close);
