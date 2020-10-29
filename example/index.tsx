@@ -21,6 +21,10 @@ const App = () => {
                   onClick: () => alert('test')
                 },
                 {
+                  key: 'separator-test',
+                  type: 'separator'
+                },
+                {
                   key: 'test2',
                   label: 'Test 2',
                   onClick: () => alert('test 2')

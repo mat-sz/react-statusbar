@@ -6,8 +6,9 @@ import { className } from '../className';
 
 export interface DropdownOption {
   key: React.ReactText;
-  label: React.ReactNode;
-  onClick: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  type?: 'separator' | 'button';
+  label?: React.ReactNode;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 export interface DropdownProps {
@@ -52,15 +53,21 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
           [styles.open]: open
         })}
       >
-        {options.map(option => (
-          <button
-            className={className(buttonStyles.button, styles.option)}
-            key={option.key}
-            onClick={option.onClick}
-          >
-            {option.label}
-          </button>
-        ))}
+        {options.map(option => {
+          if (option.type === 'separator') {
+            return <div className={styles.separator} key={option.key}></div>;
+          }
+
+          return (
+            <button
+              className={className(buttonStyles.button, styles.option)}
+              key={option.key}
+              onClick={option.onClick}
+            >
+              {option.label}
+            </button>
+          );
+        })}
       </div>
     </button>
   );
