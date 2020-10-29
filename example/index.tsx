@@ -11,7 +11,7 @@ const App = () => {
         left={
           <>
             <Statusbar.Button onClick={() => alert('test')}>
-              Hello world
+              Button
             </Statusbar.Button>
             <Statusbar.Dropdown
               options={[
@@ -32,6 +32,15 @@ const App = () => {
               ]}
             >
               Dropdown
+            </Statusbar.Dropdown>
+            <Statusbar.Dropdown
+              options={new Array(100).fill(undefined).map((_, i) => ({
+                key: 'test' + i,
+                label: 'Test ' + i,
+                onClick: () => alert('test ' + i)
+              }))}
+            >
+              Huge dropdown
             </Statusbar.Dropdown>
           </>
         }
