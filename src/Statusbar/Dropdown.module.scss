@@ -11,6 +11,7 @@
   padding: 0.5rem 0;
   max-height: 40vh;
   overflow-y: auto;
+  cursor: default;
 }
 
 .open {
@@ -24,6 +25,7 @@
   text-align: left;
   flex: 1;
   padding: 0.4rem 1.5rem;
+  cursor: pointer;
 }
 
 .separator {
