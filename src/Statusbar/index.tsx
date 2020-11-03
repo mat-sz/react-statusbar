@@ -63,3 +63,4 @@ export const Statusbar: React.FC<StatusbarProps> = props => {
 
 export * from './Button';
 export * from './Dropdown';
+export * from './Label';
