@@ -1,5 +1,5 @@
 import React, { ReactNode, useMemo } from 'react';
-import { className } from '../className';
+import { cls } from '../cls';
 
 import styles from './index.module.scss';
 
@@ -20,9 +20,13 @@ export interface StatusbarProps {
   right?: ReactNode;
 }
 
-export const Statusbar: React.FC<StatusbarProps> = props => {
-  const { theme = 'dark', height, left, right } = props;
-
+export const Statusbar: React.FC<StatusbarProps> = ({
+  theme = 'dark',
+  height,
+  left,
+  right,
+  className
+}) => {
   const style = useMemo<any>(() => {
     const styles: any = {
       height
@@ -54,7 +58,7 @@ export const Statusbar: React.FC<StatusbarProps> = props => {
   }, [theme, height]);
 
   return (
-    <div className={className(styles.statusbar, props.className)} style={style}>
+    <div className={cls(styles.statusbar, className)} style={style}>
       <div className={styles.items}>{left}</div>
       <div className={styles.items}>{right}</div>
     </div>

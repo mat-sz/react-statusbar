@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 
 import styles from './Dropdown.module.scss';
 import buttonStyles from './Button.module.scss';
-import { className } from '../className';
+import { cls } from '../cls';
 
 export interface DropdownOption {
   key: React.ReactText;
@@ -35,13 +35,13 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
   return (
     <button
       onClick={toggle}
-      className={className(buttonStyles.button, styles.button, {
+      className={cls(buttonStyles.button, styles.button, {
         [buttonStyles.active]: open
       })}
     >
       {children}
       <div
-        className={className(styles.dropdown, {
+        className={cls(styles.dropdown, {
           [styles.open]: open
         })}
       >
@@ -52,7 +52,7 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
 
           return (
             <button
-              className={className(buttonStyles.button, styles.option)}
+              className={cls(buttonStyles.button, styles.option)}
               key={option.key}
               onClick={option.onClick}
             >

@@ -1,4 +1,4 @@
-export function className(
+export function cls(
   ...classNames: (string | Record<string, boolean> | undefined | null)[]
 ) {
   let result = '';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { className } from '../className';
+import { cls } from '../cls';
 
 import styles from './Button.module.scss';
 
@@ -12,7 +12,5 @@ export interface ButtonProps
 }
 
 export const Button: React.FC<ButtonProps> = props => {
-  return (
-    <button {...props} className={className(styles.button, props.className)} />
-  );
+  return <button {...props} className={cls(styles.button, props.className)} />;
 };
