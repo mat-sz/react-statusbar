@@ -13,11 +13,17 @@ export interface DropdownOption {
 
 export interface DropdownProps {
   className?: string;
+  menuClassName?: string;
   options: DropdownOption[];
   children: React.ReactNode;
 }
 
-export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
+export const Dropdown: React.FC<DropdownProps> = ({
+  children,
+  options,
+  className,
+  menuClassName
+}) => {
   const [open, setOpen] = useState(false);
   const toggle = useCallback(() => setOpen(open => !open), [setOpen]);
   const close = useCallback(() => setOpen(false), [setOpen]);
@@ -35,15 +41,24 @@ export const Dropdown: React.FC<DropdownProps> = ({ children, options }) => {
   return (
     <button
       onClick={toggle}
-      className={cls(buttonStyles.button, styles.button, {
-        [buttonStyles.active]: open
-      })}
+      className={cls(
+        buttonStyles.button,
+        styles.button,
+        {
+          [buttonStyles.active]: open
+        },
+        className
+      )}
     >
       {children}
       <div
-        className={cls(styles.dropdown, {
-          [styles.open]: open
-        })}
+        className={cls(
+          styles.dropdown,
+          {
+            [styles.open]: open
+          },
+          menuClassName
+        )}
       >
         {options.map(option => {
           if (option.type === 'separator') {
