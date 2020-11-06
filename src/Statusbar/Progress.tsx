@@ -15,13 +15,15 @@ export const Progress: React.FC<ProgressProps> = ({
   value,
   max
 }) => {
-  const percent = useMemo(() => (value && max ? value / max : undefined), [
-    value,
-    max
-  ]);
+  const percent = useMemo(
+    () => (value && max ? (value / max) * 100 : undefined),
+    [value, max]
+  );
   return (
     <div className={cls(styles.progress, className)}>
-      <div className={styles.fill} style={{ width: percent + '%' }}></div>
+      <div className={styles.bar}>
+        <div className={styles.fill} style={{ width: percent + '%' }}></div>
+      </div>
     </div>
   );
 };
