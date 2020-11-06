@@ -16,13 +16,24 @@ export const Progress: React.FC<ProgressProps> = ({
   max
 }) => {
   const percent = useMemo(
-    () => (value && max ? (value / max) * 100 : undefined),
+    () =>
+      typeof value !== 'undefined' && max ? (value / max) * 100 : undefined,
     [value, max]
   );
+
   return (
     <div className={cls(styles.progress, className)}>
       <div className={styles.bar}>
-        <div className={styles.fill} style={{ width: percent + '%' }}></div>
+        <div
+          className={cls(styles.fill, {
+            [styles.marquee]: typeof percent === 'undefined'
+          })}
+          style={
+            typeof percent !== 'undefined'
+              ? { width: percent + '%' }
+              : undefined
+          }
+        ></div>
       </div>
     </div>
   );

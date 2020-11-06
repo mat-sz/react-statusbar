@@ -43,6 +43,7 @@ const App = () => {
               Huge dropdown
             </Statusbar.Dropdown>
             <Statusbar.Progress value={40} max={100} />
+            <Statusbar.Progress />
           </>
         }
       />
