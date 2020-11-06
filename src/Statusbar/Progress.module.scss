@@ -9,6 +9,7 @@
   height: 50%;
   background: rgba(255, 255, 255, 0.4);
   overflow: hidden;
+  position: relative;
 }
 
 .fill {
@@ -19,6 +20,18 @@
 .marquee {
   width: 50%;
   animation: marquee 5s linear infinite;
+}
+
+.label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  color: var(--statusbar-background-color);
 }
 
 @keyframes marquee {

@@ -1,11 +1,11 @@
-import React, { useMemo } from 'react';
+import React, { ReactNode, useMemo } from 'react';
 
 import styles from './Progress.module.scss';
 import { cls } from '../cls';
 
 export interface ProgressProps {
   className?: string;
-  label?: string;
+  label?: ReactNode;
   value?: number;
   max?: number;
 }
@@ -13,7 +13,8 @@ export interface ProgressProps {
 export const Progress: React.FC<ProgressProps> = ({
   className,
   value,
-  max
+  max,
+  label
 }) => {
   const percent = useMemo(
     () =>
@@ -34,6 +35,9 @@ export const Progress: React.FC<ProgressProps> = ({
               : undefined
           }
         ></div>
+        {typeof label !== 'undefined' && (
+          <div className={styles.label}>{label}</div>
+        )}
       </div>
     </div>
   );
