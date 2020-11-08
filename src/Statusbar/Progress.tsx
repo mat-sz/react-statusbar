@@ -8,13 +8,15 @@ export interface ProgressProps {
   label?: ReactNode;
   value?: number;
   max?: number;
+  width?: number;
 }
 
 export const Progress: React.FC<ProgressProps> = ({
   className,
   value,
   max,
-  label
+  label,
+  width
 }) => {
   const percent = useMemo(
     () =>
@@ -23,7 +25,7 @@ export const Progress: React.FC<ProgressProps> = ({
   );
 
   return (
-    <div className={cls(styles.progress, className)}>
+    <div className={cls(styles.progress, className)} style={{ width }}>
       <div className={styles.bar}>
         <div
           className={cls(styles.fill, {
