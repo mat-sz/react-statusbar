@@ -14,6 +14,9 @@ const App = () => {
             <Statusbar.Button onClick={() => alert('test')}>
               Button
             </Statusbar.Button>
+            <Statusbar.Label>
+              <FaCheck /> Hello, world!
+            </Statusbar.Label>
             <Statusbar.Dropdown
               options={[
                 {
@@ -51,9 +54,6 @@ const App = () => {
                 </>
               }
             />
-            <Statusbar.Label>
-              <FaCheck /> Hello, world!
-            </Statusbar.Label>
           </>
         }
       />

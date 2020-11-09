@@ -1,4 +1,7 @@
 import React from 'react';
+import { cls } from '../cls';
+
+import styles from './Label.module.scss';
 
 export interface LabelProps {
   className?: string;
@@ -6,5 +9,5 @@ export interface LabelProps {
 }
 
 export const Label: React.FC<LabelProps> = ({ className, children }) => {
-  return <div className={className}>{children}</div>;
+  return <div className={cls(styles.label, className)}>{children}</div>;
 };
