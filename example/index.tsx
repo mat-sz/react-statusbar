@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import '../dist/statusbar.css';
 import * as Statusbar from '../';
+import { FaCheck } from 'react-icons/fa';
 
 const App = () => {
   return (
@@ -31,7 +32,7 @@ const App = () => {
                 }
               ]}
             >
-              Dropdown
+              <FaCheck /> Dropdown
             </Statusbar.Dropdown>
             <Statusbar.Dropdown
               options={new Array(100).fill(undefined).map((_, i) => ({
@@ -43,7 +44,16 @@ const App = () => {
               Huge dropdown
             </Statusbar.Dropdown>
             <Statusbar.Progress value={40} max={100} />
-            <Statusbar.Progress label="Hello, world!" />
+            <Statusbar.Progress
+              label={
+                <>
+                  <FaCheck /> Hello, world!
+                </>
+              }
+            />
+            <Statusbar.Label>
+              <FaCheck /> Hello, world!
+            </Statusbar.Label>
           </>
         }
       />

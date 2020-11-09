@@ -1,3 +1,5 @@
+@import './common.scss';
+
 .button {
   background: none;
   border: none;
@@ -7,6 +9,8 @@
   font-weight: normal;
   font-size: 1em;
   cursor: pointer;
+
+  @include icons;
 }
 
 .button:hover,
