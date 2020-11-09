@@ -1,6 +1,10 @@
 # react-statusbar
 
-A simple React library for beautiful statusbars.
+A simple React library for beautiful status bars.
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/mat-sz/react-statusbar/master/screenshot.png" alt="Screenshot">
+</p>
 
 ## Usage
 
