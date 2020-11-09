@@ -5,11 +5,11 @@ A simple React library for beautiful status bars.
 </p>
 
 <p align="center">
-<img alt="workflow" src="https://img.shields.io/github/workflow/status/mat-sz/typesocket/Node.js%20CI%20(yarn)">
-<a href="https://npmjs.com/package/typesocket">
-<img alt="npm" src="https://img.shields.io/npm/v/typesocket">
-<img alt="npm" src="https://img.shields.io/npm/dw/typesocket">
-<img alt="NPM" src="https://img.shields.io/npm/l/typesocket">
+<img alt="workflow" src="https://img.shields.io/github/workflow/status/mat-sz/react-statusbar/Node.js%20CI%20(yarn)">
+<a href="https://npmjs.com/package/react-statusbar">
+<img alt="npm" src="https://img.shields.io/npm/v/react-statusbar">
+<img alt="npm" src="https://img.shields.io/npm/dw/react-statusbar">
+<img alt="NPM" src="https://img.shields.io/npm/l/react-statusbar">
 </a>
 </p>
 
