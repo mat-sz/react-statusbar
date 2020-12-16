@@ -38,6 +38,7 @@ const App = () => {
               <FaCheck /> Dropdown
             </Statusbar.Dropdown>
             <Statusbar.Dropdown
+              searchable
               options={new Array(100).fill(undefined).map((_, i) => ({
                 key: 'test' + i,
                 label: 'Test ' + i,

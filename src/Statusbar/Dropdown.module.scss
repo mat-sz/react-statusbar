@@ -32,3 +32,14 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   margin: 0.5rem 1rem;
 }
+
+.search {
+  input {
+    max-width: 100%;
+    border: none;
+    background-color: var(--statusbar-background-color);
+    color: var(--statusbar-primary-color);
+    padding: 0.2rem 0.4rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+}

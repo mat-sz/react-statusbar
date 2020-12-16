@@ -14,19 +14,34 @@ export interface DropdownOption {
 export interface DropdownProps {
   className?: string;
   menuClassName?: string;
+  searchable?: boolean;
   options: DropdownOption[];
   children: React.ReactNode;
 }
+
+const stopPropagation = (
+  e: React.MouseEvent | React.TouchEvent | React.KeyboardEvent
+) => {
+  e.stopPropagation();
+};
 
 export const Dropdown: React.FC<DropdownProps> = ({
   children,
   options,
   className,
-  menuClassName
+  menuClassName,
+  searchable = false
 }) => {
   const [open, setOpen] = useState(false);
-  const toggle = useCallback(() => setOpen(open => !open), [setOpen]);
-  const close = useCallback(() => setOpen(false), [setOpen]);
+  const [search, setSearch] = useState('');
+  const toggle = useCallback(() => {
+    setOpen(open => !open);
+    setSearch('');
+  }, [setOpen, setSearch]);
+  const close = useCallback(() => {
+    setOpen(false);
+    setSearch('');
+  }, [setOpen, setSearch]);
 
   useEffect(() => {
     window.addEventListener('mousedown', close);
@@ -59,22 +74,43 @@ export const Dropdown: React.FC<DropdownProps> = ({
           },
           menuClassName
         )}
+        onMouseDown={stopPropagation}
+        onTouchStart={stopPropagation}
       >
-        {options.map(option => {
-          if (option.type === 'separator') {
-            return <div className={styles.separator} key={option.key}></div>;
-          }
+        {searchable && (
+          <div className={styles.search} onClick={stopPropagation}>
+            <input
+              type="search"
+              placeholder="Search..."
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+          </div>
+        )}
+        {options
+          .filter(
+            option =>
+              search === '' ||
+              option.label
+                ?.toString()
+                .toLowerCase()
+                .includes(search.toLowerCase())
+          )
+          .map(option => {
+            if (option.type === 'separator') {
+              return <div className={styles.separator} key={option.key}></div>;
+            }
 
-          return (
-            <button
-              className={cls(buttonStyles.button, styles.option)}
-              key={option.key}
-              onClick={option.onClick}
-            >
-              {option.label}
-            </button>
-          );
-        })}
+            return (
+              <button
+                className={cls(buttonStyles.button, styles.option)}
+                key={option.key}
+                onClick={option.onClick}
+              >
+                {option.label}
+              </button>
+            );
+          })}
       </div>
     </button>
   );
