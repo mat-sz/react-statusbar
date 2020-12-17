@@ -18,6 +18,7 @@ export interface StatusbarProps {
   className?: string;
   left?: ReactNode;
   right?: ReactNode;
+  placement?: 'bottom' | 'block';
 }
 
 export const Statusbar: React.FC<StatusbarProps> = ({
@@ -25,7 +26,8 @@ export const Statusbar: React.FC<StatusbarProps> = ({
   height,
   left,
   right,
-  className
+  className,
+  placement = 'bottom'
 }) => {
   const style = useMemo<any>(() => {
     const styles: any = {
@@ -58,7 +60,14 @@ export const Statusbar: React.FC<StatusbarProps> = ({
   }, [theme, height]);
 
   return (
-    <div className={cls(styles.statusbar, className)} style={style}>
+    <div
+      className={cls(
+        styles.statusbar,
+        styles['placement-' + placement],
+        className
+      )}
+      style={style}
+    >
       <div className={styles.items}>{left}</div>
       <div className={styles.items}>{right}</div>
     </div>
